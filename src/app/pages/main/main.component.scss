@@ -1,0 +1,14 @@
+.welcome {
+    width: 100%;
+    height: calc(100vh - 64px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border: 3px solid red;
+}
+
+@media (max-width: 599px) {
+    .welcome {
+        height: calc(100vh - 56px);
+    }
+}
