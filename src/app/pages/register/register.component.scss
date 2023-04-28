@@ -1,0 +1,21 @@
+.register-form-container{
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-30%);
+}
+.registration-form{
+    display: grid;
+}
+.hide-password{
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+}
+@media (max-width: 700px){
+    .register-form-container{
+        width: 98%;
+        padding: 1%;
+    }
+}

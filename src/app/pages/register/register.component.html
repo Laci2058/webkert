@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="register-form-container">
+    <form [formGroup]="signUpForm" class="registration-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="am@o.gus" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="sus" [formControl]="username" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="password" required
+                [type]="hide ? 'password' : 'text'">
+            <button class="hide-password" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password again</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="repassword" required>
+        </mat-form-field>
+    </form>
+</div>
