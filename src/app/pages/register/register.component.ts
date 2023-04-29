@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../shared/model/user';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
     selector: 'app-register',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-    constructor(private router: Router, private authService: AuthService) { }
+    constructor(private router: Router, private authService: AuthService, private userService: UserService) { }
 
     ngOnInit(): void {
     }
@@ -25,8 +27,19 @@ export class RegisterComponent implements OnInit {
 
 
     signup() {
-        return this.authService.signup(this.email.value, this.password.value).then(cred => {
-            this.router.navigateByUrl('/main')
+        this.authService.signup(this.email.value, this.password.value).then(cred => {
+            const user: User = {
+                id: cred.user?.uid as string,
+                email: this.email.value,
+                username: this.username.value
+            }
+            this.userService.create(user).then(_ => {
+                console.log('added')
+                this.router.navigateByUrl('/main')
+            }).catch(error=>{
+                console.error(error)
+            })
+            
         }).catch(error => {
             console.error(error)
         })
