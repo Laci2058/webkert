@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "reflextestweb": {
+      "hosting": {
+        "reflex_test": [
+          "reflextestweb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "reflextestweb"
+  }
+}

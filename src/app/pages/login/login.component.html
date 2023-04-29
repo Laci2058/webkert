@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="register-form-container">
+    <form class="registration-form">
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="am@og.us" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailError()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="*****" [formControl]="password" required [type]="pw_hide ? 'password' : 'text'">
+            <button class="hide-password" mat-icon-button matSuffix (click)="pw_hide = !pw_hide">
+                <mat-icon>{{pw_hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid">{{getRequiredError()}}</mat-error>
+        </mat-form-field>
+        
+        <button (click)="login()">Sign in</button>
+    </form>
+</div>

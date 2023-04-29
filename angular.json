@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "reflex_test:build:production",
+            "firebaseProject": "reflextestweb",
+            "firebaseHostingSite": "reflextestweb"
+          }
         }
       }
     }

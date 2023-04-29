@@ -10,13 +10,19 @@ import { MatListModule } from '@angular/material/list'
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { AngularFireModule} from '@angular/fire/compat'
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
         FormsModule,
         MatToolbarModule,
         MatSidenavModule,
@@ -25,8 +31,13 @@ import { FormsModule } from '@angular/forms';
         MatButtonModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+        AngularFireModule.initializeApp(environment.firebase),
+        // provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+        provideStorage(() => getStorage()),
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
