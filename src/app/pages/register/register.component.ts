@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
             const user: User = {
                 id: cred.user?.uid as string,
                 email: this.email.value,
-                username: this.username.value
+                username: this.username.value,
+                record: ''
             }
             this.userService.create(user).then(_ => {
                 console.log('added')

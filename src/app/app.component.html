@@ -9,7 +9,7 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over" fixedInViewport="true">
         <mat-nav-list>
-            <ng-template [ngIf]="(loggedInUser)">
+            <ng-template [ngIf]="loggedInUser">
                 <a mat-list-item (click)="sidenav.toggle();" routerLink="main">
                     <mat-icon class="list-icon">home</mat-icon>Home</a>
 
