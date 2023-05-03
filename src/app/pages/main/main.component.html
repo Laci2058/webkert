@@ -1,4 +1,10 @@
 <div class="welcome">
-    When you see the STOP sign click or press any key to stop.<br>
-    Press SPACE to start the game.
+    <ng-template [ngIf]="!game_status && start_new_game">
+        When you see the STOP sign press SPACE to stop.<br>
+        Press SPACE to start the game.
+    </ng-template>
+    <ng-template #yourtime>
+        {{reaction_time}}
+    </ng-template>
+
 </div>
