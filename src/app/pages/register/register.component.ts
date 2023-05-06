@@ -36,7 +36,6 @@ export class RegisterComponent implements OnInit {
                 date: new Date().toISOString()
             }
             this.userService.create(user).then(_ => {
-                console.log('added')
                 this.router.navigateByUrl('/main')
             }).catch(error=>{
                 console.error(error)

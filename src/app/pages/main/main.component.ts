@@ -25,6 +25,7 @@ export class MainComponent implements OnInit, OnDestroy {
     handleKeyDown(event: KeyboardEvent) {
         if (this.game_status === true) {
             this.end_game()
+
         } else if (this.start_new_game === false) {
             this.start_new_game = true
         }
@@ -37,15 +38,15 @@ export class MainComponent implements OnInit, OnDestroy {
     constructor(private userService: UserService, private AuthService: AuthService) { }
 
     ngOnDestroy(): void {
-        this.auth_sub.unsubscribe()
+
     }
 
     ngOnInit(): void {
         this.AuthService.isUserLoggedIn().subscribe(user => {
             this.userService.getById(user?.uid).subscribe(data => {
-                this.user_best_time = data?.record
-            }).unsubscribe()
-        }).unsubscribe()
+                this.user_best_time = data[0].record
+            })
+        })
     }
 
     start_game() {
@@ -79,7 +80,8 @@ export class MainComponent implements OnInit, OnDestroy {
             let current_time = `${this.end_time - this.start_time}`
 
             this.reaction_time = `Your reaction time: ${current_time}ms`
-            if (this.user_best_time === undefined || current_time < this.user_best_time) {
+            
+            if (this.user_best_time === undefined || parseInt(current_time) < parseInt(this.user_best_time) ) {
                 this.updateUser(current_time)
             }
         }
@@ -88,7 +90,7 @@ export class MainComponent implements OnInit, OnDestroy {
     }
 
     updateUser(current_time: string) {
-        this.auth_sub = this.AuthService.isUserLoggedIn().subscribe(user => {
+        this.AuthService.isUserLoggedIn().subscribe(user => {
             this.userService.update(user?.uid, current_time)
         })
     }

@@ -16,12 +16,12 @@ export class UserService {
         return this.afs.collection<User>(this.collectionName).doc(user.id).set(user)
     }
     getById(id?: string) {
-        return this.afs.collection<User>(this.collectionName).doc(id).valueChanges()
+        return this.afs.collection<User>(this.collectionName, ref => ref.where("id", "==", id)).valueChanges()
     }
     update(id: string | undefined, new_record: string) {
-        return this.afs.collection<User>(this.collectionName).doc(id).update({'record':new_record})
+        return this.afs.collection<User>(this.collectionName).doc(id).update({ 'record': new_record })
     }
-    getAll(){
-        return this.afs.collection<User>(this.collectionName, ref=> ref.limit(10)).valueChanges()
+    getAll() {
+        return this.afs.collection<User>(this.collectionName, ref => ref.limit(10)).valueChanges()
     }
 }

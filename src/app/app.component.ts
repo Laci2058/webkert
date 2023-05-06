@@ -33,8 +33,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     logout() {
         this.AuthService.signout().then(() => {
-            console.log('kijelentkezve');
-
         }).catch(error => {
             console.error(error)
         })
