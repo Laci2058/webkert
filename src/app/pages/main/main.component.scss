@@ -1,9 +1,15 @@
+
+
 .welcome {
     width: 100%;
     height: calc(100vh - 64px);
     display: grid;
     place-items: center;
     text-align: center;
+}
+.instruction{
+    font-size: 3vh;
+    line-height: 4vh;
 }
 
 @media (max-width: 599px) {

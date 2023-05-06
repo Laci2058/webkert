@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../shared/model/user';
 import { UserService } from '../../shared/services/user.service';
 
@@ -19,9 +19,7 @@ export class LeaderboardComponent implements OnInit {
     constructor(private userService: UserService) { }
     ngOnInit(): void {
         this.getUsersData()
-        console.log(this.userdata)
     }
-
 
     userdata: User[] = []
 
@@ -40,6 +38,7 @@ export class LeaderboardComponent implements OnInit {
                     this.userdata.push(user_record)
                 }
             })
+            this.userdata.sort((a, b) => parseInt(a.record) < parseInt(b.record) ? -1 : 1)
         })
     }
 

@@ -1,13 +1,16 @@
 <div class="welcome">
     <ng-container *ngIf="!game_status && start_new_game; then home else yourtime"></ng-container>
     <ng-template #home>
-        When you see the STOP sign press SPACE to stop.<br>
-        Press SPACE to start the game.
+        <p class="instruction">
+            When you see the STOP sign press SPACE to stop.<br>
+            Press SPACE to start the game.
+        </p>
     </ng-template>
-    <ng-template #yourtime>
+    <ng-template #yourtime >
+       <p class="instruction">
         {{stop}}
         {{reaction_time}}
+       </p>
+        
     </ng-template>
 </div>
-    
-
