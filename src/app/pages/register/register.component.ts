@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
                 id: cred.user?.uid as string,
                 email: this.email.value,
                 username: this.username.value,
-                record: ''
+                record: '',
+                date: new Date().toISOString()
             }
             this.userService.create(user).then(_ => {
                 console.log('added')

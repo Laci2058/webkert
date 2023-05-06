@@ -1,23 +1,21 @@
 <div class="content">
     <div class="table-container">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element">{{element.position}}</td>
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef> Username </th>
+                <td mat-cell *matCellDef="let userdata">{{userdata.username}}</td>
             </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            <ng-container matColumnDef="record">
+                <th mat-header-cell *matHeaderCellDef> Best time </th>
+                <td mat-cell *matCellDef="let userdata">{{userdata.record}}</td>
             </ng-container>
 
-            <!-- Time Column -->
-            <ng-container matColumnDef="time">
-                <th mat-header-cell *matHeaderCellDef> Time </th>
-                <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Date </th>
+                <td mat-cell *matCellDef="let userdata"> {{userdata.date}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -26,5 +24,50 @@
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
             aria-label="Select page of periodic elements">
         </mat-paginator>
+    -->
+
+        <table border=1 frame=void rules=rows class="mat-elevation-z8">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Best time</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <ng-container *ngFor="let data of userdata">
+                <tr >
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}ms</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.record}}</td>
+                    <td>{{data.date}}</td>
+                </tr>
+                
+            </ng-container>
+        </table>
+
     </div>
 </div>

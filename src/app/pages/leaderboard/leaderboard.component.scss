@@ -2,9 +2,15 @@ table {
     width: 100%;
     text-align: center;
 }
-th.mat-header-cell{text-align: center;}
+th{
+    text-align: center;
+    height: 5vh;
+}
+td{
+    height: 5vh;
+}
 
-.content{
+.content {
     width: 100%;
     height: calc(100vh - 64px);
 }
@@ -14,16 +20,15 @@ th.mat-header-cell{text-align: center;}
     width: 60%;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,-20%);
+    transform: translate(-50%, -20%);
 }
-@media (max-width: 599px){
-    .content{
+
+@media (max-width: 599px) {
+    .content {
         height: calc(100vh - 56px);
     }
+
     .table-container {
         width: 100%
-    }
-    ::ng-deep .mat-paginator-range-label{
-        display: none;
     }
 }
