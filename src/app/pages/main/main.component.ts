@@ -18,7 +18,7 @@ export class MainComponent implements OnInit, OnDestroy {
     to_start_the_game: NodeJS.Timeout | undefined
     reaction_time = ''
     stop = ''
-    user_best_time?: string
+    user_best_time: string = ""
     auth_sub: Subscription = new Subscription;
 
     @HostListener('window:keydown.space', ['$event'])
@@ -80,8 +80,7 @@ export class MainComponent implements OnInit, OnDestroy {
             let current_time = `${this.end_time - this.start_time}`
 
             this.reaction_time = `Your reaction time: ${current_time}ms`
-            
-            if (this.user_best_time === undefined || parseInt(current_time) < parseInt(this.user_best_time) ) {
+            if (this.user_best_time === "" || parseInt(current_time) < parseInt(this.user_best_time) ) {
                 this.updateUser(current_time)
             }
         }
