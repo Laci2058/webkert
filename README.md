@@ -1,27 +1,20 @@
-# ReflexTest
+# Reflex tesztelő alkalmazás
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+Egyetemi kurzus keretein belül készített reflex tesztelő játék.
 
-## Development server
+Link a játékhoz: https://reflextestweb.web.app/login
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technológiák
+- Angular 13
+- Firestore
 
-## Code scaffolding
+## Követelmények
+- Regisztráció
+- Ranglista
+- Billentyűzettel irányítható
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Képernyőképek
+![login_page](https://github.com/Laci2058/webkert/assets/90342307/1933e91a-5483-414e-9234-16690a3b8ca2)
+![main_page_menu](https://github.com/Laci2058/webkert/assets/90342307/5754fba4-f095-4fe1-96ae-0c20c7d870c5)
+![main_page4](https://github.com/Laci2058/webkert/assets/90342307/4ce8032a-28a1-4ffd-9ee4-7988fa0b2cf8)
+![leaderboard](https://github.com/Laci2058/webkert/assets/90342307/1fa7892c-d04a-452a-ba00-046aac247309)
