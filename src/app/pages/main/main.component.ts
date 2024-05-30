@@ -57,8 +57,7 @@ export class MainComponent implements OnInit, OnDestroy {
         this.game_status = true
 
         this.to_start_the_game = setTimeout(() => {
-            let start_date = new Date()
-            this.start_time = start_date.getTime()
+            this.start_time = new Date().getTime()
             this.stop = 'STOP'
         }, change_time)
 
@@ -69,8 +68,7 @@ export class MainComponent implements OnInit, OnDestroy {
     }
 
     end_game() {
-        let end_date = new Date()
-        this.end_time = end_date.getTime()
+        this.end_time = new Date().getTime()
         this.game_status = false
         this.stop = ''
 
@@ -79,9 +77,12 @@ export class MainComponent implements OnInit, OnDestroy {
         } else {
             let current_time = `${this.end_time - this.start_time}`
 
-            this.reaction_time = `Your reaction time: ${current_time}ms`
-            if (this.user_best_time === "" || parseInt(current_time) < parseInt(this.user_best_time) ) {
+
+            if (this.user_best_time === "" || parseInt(current_time) < parseInt(this.user_best_time)) {
                 this.updateUser(current_time)
+                this.reaction_time = "New Record" + "\n" + ` Your reaction time: ${current_time}ms`
+            } else {
+                this.reaction_time = `Your reaction time: ${current_time}ms`
             }
         }
         clearTimeout(this.to_end_the_game)
